@@ -1,7 +1,17 @@
+import CalculatorButtons from './CalculatorButtons.jsx'
+import CalculatorOutput from './CalculatorOutput.jsx'
+import './App.css'
+
 export default function App() {
   return (
     <>
-      <h1>Hi</h1>
+      <div className='calculator-container'>
+        <div className='calculator-base'>
+          <CalculatorOutput />
+          <CalculatorButtons />
+        </div>
+      </div>
+
     </>
   )
 }
