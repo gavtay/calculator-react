@@ -1,10 +1,11 @@
 import './CalculatorOutput.css'
 
-export default function CalculatorOutput() {
+export default function CalculatorOutput({ calcCalculation }) {
+
     return (
         <>
             <div className="output-container">
-                <h1 className="output-text">5 + 2 / 4</h1>
+                <h1 className="output-text">{calcCalculation}</h1>
             </div>
         </>
     )
