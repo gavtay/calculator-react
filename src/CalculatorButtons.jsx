@@ -1,13 +1,16 @@
 import './CalculatorButtons.css'
 
 export default function CalculatorButtons({ addToCalculation, clearCalculation, calcCalculation, makeCalculation }) {
-    function checkPrevChar() {
+    function checkPrevChar(event) {
         let str = calcCalculation;
         let strLen = str.length - 1;
 
         if (str.length) {
-            if (!isNaN(str.charAt(strLen))) {
+            if (isNaN(event.target.value) && !isNaN(str.charAt(strLen))) {
                 addToCalculation(event);
+            }
+            if (event.target.value == '=' && !isNaN(str.charAt(strLen))) {
+                makeCalculation();
             }
         }       
     }
@@ -23,7 +26,7 @@ export default function CalculatorButtons({ addToCalculation, clearCalculation, 
                         addToCalculation(event);
                     }}>)</button>
                     <button className='calc-btn' value='%' onClick={()=> {
-                        checkPrevChar();
+                        checkPrevChar(event);
                     }}>%</button>
                     <button className='calc-btn' value='C' onClick={()=> {
                         clearCalculation();
@@ -40,7 +43,7 @@ export default function CalculatorButtons({ addToCalculation, clearCalculation, 
                         addToCalculation(event);
                     }}>9</button>
                     <button className='calc-btn' value='/' onClick={()=> {
-                        checkPrevChar();
+                        checkPrevChar(event);
                     }}>/</button>
                 </div>
                 <div className='btn-row'>
@@ -54,7 +57,7 @@ export default function CalculatorButtons({ addToCalculation, clearCalculation, 
                         addToCalculation(event);
                     }}>6</button>
                     <button className='calc-btn' value='*' onClick={()=> {
-                        checkPrevChar();
+                        checkPrevChar(event);
                     }}>*</button>
                 </div>
                 <div className='btn-row'>
@@ -68,7 +71,7 @@ export default function CalculatorButtons({ addToCalculation, clearCalculation, 
                         addToCalculation(event);
                     }}>3</button>
                     <button className='calc-btn' value='-' onClick={()=> {
-                        checkPrevChar();
+                        checkPrevChar(event);
                     }}>-</button>
                 </div>
                 <div className='btn-row'>
@@ -82,7 +85,7 @@ export default function CalculatorButtons({ addToCalculation, clearCalculation, 
                         (calcCalculation) && makeCalculation();
                     }}>=</button>
                     <button className='calc-btn' value='+' onClick={()=> {
-                        checkPrevChar();
+                        checkPrevChar(event);
                     }}>+</button>
                 </div>
             </div>
