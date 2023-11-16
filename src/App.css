@@ -7,7 +7,7 @@
 .calculator-base {
     height: 80vh;
     width: 25vw;
-    background-color: rgb(209, 209, 209);
+    background: linear-gradient(#ff0080, #bc00f5);
     border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
 }
