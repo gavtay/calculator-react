@@ -39,8 +39,10 @@ export default function App() {
   function makeCalculation() {
     let formula = calcCalculation;
     let checkPass = checkParenthesis(formula);
-
-    if (checkPass === true) { setCalcCalculation(eval(formula)); }
+    let fixDec = eval(formula);
+    
+    if (eval(formula) % 1 !== 0) { fixDec = eval(formula).toFixed(2);}
+    if (checkPass === true) { setCalcCalculation(fixDec); }
     else { alert('Check parenthesis'); }
   }
 

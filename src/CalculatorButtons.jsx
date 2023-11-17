@@ -1,3 +1,4 @@
+import Button from './Button.jsx'
 import './CalculatorButtons.css'
 
 export default function CalculatorButtons({ addToCalculation, clearCalculation, calcCalculation, makeCalculation }) {
@@ -8,6 +9,7 @@ export default function CalculatorButtons({ addToCalculation, clearCalculation, 
         if (str.length) {
             if (event.target.value === '=' && !isNaN(str.charAt(strLen))) {
                 makeCalculation();
+                return;
             }
             else if (isNaN(event.target.value) && !isNaN(str.charAt(strLen))) {
                 addToCalculation(event);
@@ -19,74 +21,34 @@ export default function CalculatorButtons({ addToCalculation, clearCalculation, 
         <>
             <div className='btn-container'>
                 <div className='btn-row'>
-                    <button className='calc-btn' value='(' onClick={()=> {
-                        addToCalculation(event);
-                    }}>(</button>
-                    <button className='calc-btn' value=')' onClick={()=> {
-                        addToCalculation(event);
-                    }}>)</button>
-                    <button className='calc-btn' value='%' onClick={()=> {
-                        checkPrevChar(event);
-                    }}>%</button>
-                    <button className='calc-btn' value='C' onClick={()=> {
-                        clearCalculation();
-                    }}>C</button>
+                    <Button value='(' onClick={addToCalculation} />
+                    <Button value=')' onClick={addToCalculation} />
+                    <Button value='%' onClick={checkPrevChar} />
+                    <Button value='C' onClick={clearCalculation} />
                 </div>
                 <div className='btn-row'>
-                    <button className='calc-btn' value={7} onClick={()=> {
-                        addToCalculation(event);
-                    }}>7</button>
-                    <button className='calc-btn' value={8} onClick={()=> {
-                        addToCalculation(event);
-                    }}>8</button>
-                    <button className='calc-btn' value={9} onClick={()=> {
-                        addToCalculation(event);
-                    }}>9</button>
-                    <button className='calc-btn' value='/' onClick={()=> {
-                        checkPrevChar(event);
-                    }}>/</button>
+                    <Button value={7} onClick={addToCalculation} />
+                    <Button value={8} onClick={addToCalculation} />
+                    <Button value={9} onClick={addToCalculation} />
+                    <Button value='/' onClick={checkPrevChar} />
                 </div>
                 <div className='btn-row'>
-                    <button className='calc-btn' value='4' onClick={()=> {
-                        addToCalculation(event);
-                    }}>4</button>
-                    <button className='calc-btn' value='5' onClick={()=> {
-                        addToCalculation(event);
-                    }}>5</button>
-                    <button className='calc-btn' value='6' onClick={()=> {
-                        addToCalculation(event);
-                    }}>6</button>
-                    <button className='calc-btn' value='*' onClick={()=> {
-                        checkPrevChar(event);
-                    }}>*</button>
+                    <Button value={4} onClick={addToCalculation} />
+                    <Button value={5} onClick={addToCalculation} />
+                    <Button value={6} onClick={addToCalculation} />
+                    <Button value='*' onClick={checkPrevChar} />
                 </div>
                 <div className='btn-row'>
-                    <button className='calc-btn' value='1' onClick={()=> {
-                        addToCalculation(event);
-                    }}>1</button>
-                    <button className='calc-btn' value='2' onClick={()=> {
-                        addToCalculation(event);
-                    }}>2</button>
-                    <button className='calc-btn' value='3' onClick={()=> {
-                        addToCalculation(event);
-                    }}>3</button>
-                    <button className='calc-btn' value='-' onClick={()=> {
-                        checkPrevChar(event);
-                    }}>-</button>
+                    <Button value={1} onClick={addToCalculation} />
+                    <Button value={2} onClick={addToCalculation} />
+                    <Button value={3} onClick={addToCalculation} />
+                    <Button value='-' onClick={checkPrevChar} />
                 </div>
                 <div className='btn-row'>
-                    <button className='calc-btn' value='0' onClick={()=> {
-                        addToCalculation(event);
-                    }}>0</button>
-                    <button className='calc-btn' value='.' onClick={()=> {
-                        addToCalculation(event);
-                    }}>.</button>
-                    <button className='calc-btn' value='=' onClick={()=> {
-                        (calcCalculation) && makeCalculation();
-                    }}>=</button>
-                    <button className='calc-btn' value='+' onClick={()=> {
-                        checkPrevChar(event);
-                    }}>+</button>
+                    <Button value={0} onClick={addToCalculation} />
+                    <Button value='.' onClick={addToCalculation} />
+                    <Button value='=' onClick={makeCalculation} />
+                    <Button value='+' onClick={checkPrevChar} />
                 </div>
             </div>
         </>
