@@ -21,28 +21,27 @@ export default function App() {
     for (let i = 0; i < formula.length; ++i) {
       if (openCount === closeCount) {
         if (formula.charAt(i) === '(') { openCount += 1; } 
-        if (formula.charAt(i) === ')') {
+        else if (formula.charAt(i) === ')') {
           alert('You must include "(" before using ")"');
           clearCalculation();
-          break;
+          continue;
         }
       }
-      if (openCount > closeCount) {
+      else if (openCount > closeCount) {
         if (formula.charAt(i) === '(') { openCount += 1 }
-        if (formula.charAt(i) === ')') { closeCount += 1 }
+        else if (formula.charAt(i) === ')') { closeCount += 1 }
       }
     }
 
-    return (openCount === closeCount) ? true: false;
+    return (openCount === closeCount) ? true : false;
   }
 
   function makeCalculation() {
     let formula = calcCalculation;
     let checkPass = checkParenthesis(formula);
 
-    console.log(checkPass);
     if (checkPass === true) { setCalcCalculation(eval(formula)); }
-    else { alert('Error. Check your parenthesis.') }
+    else { alert('Check parenthesis'); }
   }
 
   return (

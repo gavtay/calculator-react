@@ -6,11 +6,11 @@ export default function CalculatorButtons({ addToCalculation, clearCalculation, 
         let strLen = str.length - 1;
 
         if (str.length) {
-            if (isNaN(event.target.value) && !isNaN(str.charAt(strLen))) {
-                addToCalculation(event);
-            }
-            if (event.target.value == '=' && !isNaN(str.charAt(strLen))) {
+            if (event.target.value === '=' && !isNaN(str.charAt(strLen))) {
                 makeCalculation();
+            }
+            else if (isNaN(event.target.value) && !isNaN(str.charAt(strLen))) {
+                addToCalculation(event);
             }
         }       
     }

@@ -1,9 +1,7 @@
 .output-container {
-    height: 10vh;
+    height: 15%;
     width: 100%;
-    background-color:  rgb(255, 255, 255);
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
+    background-color:  rgb(240, 140, 253);
     border-bottom: 1px solid rgb(0, 0, 0);
     display: flex;
     justify-content: end;
