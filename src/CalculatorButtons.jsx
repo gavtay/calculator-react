@@ -5,13 +5,14 @@ export default function CalculatorButtons({ addToCalculation, clearCalculation, 
     function checkPrevChar(event) {
         let str = calcCalculation;
         let strLen = str.length - 1;
+        let val = event.target.value;
 
         if (str.length) {
-            if (event.target.value === '=' && !isNaN(str.charAt(strLen))) {
+            if (val === '=' && !isNaN(str.charAt(strLen))) {
                 makeCalculation();
                 return;
             }
-            else if (isNaN(event.target.value) && !isNaN(str.charAt(strLen))) {
+            else if (isNaN(val) && !isNaN(str.charAt(strLen)) || str.charAt(strLen) === '=') {
                 addToCalculation(event);
             }
         }       
@@ -47,7 +48,7 @@ export default function CalculatorButtons({ addToCalculation, clearCalculation, 
                 <div className='btn-row'>
                     <Button value={0} onClick={addToCalculation} />
                     <Button value='.' onClick={addToCalculation} />
-                    <Button value='=' onClick={makeCalculation} />
+                    <Button value='=' onClick={checkPrevChar} />
                     <Button value='+' onClick={checkPrevChar} />
                 </div>
             </div>

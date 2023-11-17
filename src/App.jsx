@@ -39,10 +39,10 @@ export default function App() {
   function makeCalculation() {
     let formula = calcCalculation;
     let checkPass = checkParenthesis(formula);
-    let fixDec = eval(formula);
-    
-    if (eval(formula) % 1 !== 0) { fixDec = eval(formula).toFixed(2);}
-    if (checkPass === true) { setCalcCalculation(fixDec); }
+    let roundedNum = '' + eval(formula);
+
+    if (eval(formula) % 1 !== 0) { roundedNum = eval(formula).toFixed(2);}
+    if (checkPass === true) { setCalcCalculation(roundedNum); }
     else { alert('Check parenthesis'); }
   }
 
