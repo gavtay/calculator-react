@@ -22,8 +22,8 @@ export default function CalculatorButtons({ addToCalculation, clearCalculation, 
         <>
             <div className='btn-container'>
                 <div className='btn-row'>
-                    <Button value='(' onClick={addToCalculation} />
-                    <Button value=')' onClick={addToCalculation} />
+                    <button className='new-calc-btn'></button>
+                    <button className='new-calc-btn'></button>
                     <Button value='%' onClick={checkPrevChar} />
                     <Button value='C' onClick={clearCalculation} />
                 </div>
