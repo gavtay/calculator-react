@@ -22,7 +22,7 @@ export default function App() {
       if (openCount === closeCount) {
         if (formula.charAt(i) === '(') { openCount += 1; } 
         else if (formula.charAt(i) === ')') {
-          alert('You must include "(" before using ")"');
+          console.log('You must include "(" before using ")"');
           clearCalculation();
           continue;
         }
@@ -43,7 +43,7 @@ export default function App() {
 
     if (eval(formula) % 1 !== 0) { roundedNum = eval(formula).toFixed(2);}
     if (checkPass === true) { setCalcCalculation(roundedNum); }
-    else { alert('Check parenthesis'); }
+    else { console.log('Check parenthesis'); }
   }
 
   return (
